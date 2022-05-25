@@ -1,23 +1,18 @@
 extends CanvasLayer
 
-
-# Declare member variables here. Examples:
-# var a: int = 2
-# var b: String = "text"
 export var button_size: Vector2
 
-func add(title, obj, handler_name) -> void:
+
+func add_button(title, bind_object, bind_handler_name) -> void:
 	var b: Button = Button.new()
 	b.text = title
 	b.name = str(title)
 	b.rect_min_size = button_size
 	$VBoxContainer.add_child(b)
-	b.connect("pressed", obj, handler_name)
+	b.connect("pressed", bind_object, bind_handler_name)
 
 func show():
-	pass
+	$VBoxContainer.visible = true
 
 func hide():
-	queue_free()
-	pass
-
+	$VBoxContainer.visible = false
