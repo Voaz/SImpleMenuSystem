@@ -5,10 +5,13 @@ extends Node2D
 var main_menu = preload("res://addons/MainMenu/MainMenu.tscn").instance()
 
 func _ready() -> void:
+	main_menu.add_label("Section 1")
+	main_menu.add_spacer(2)
 	# Add two buttons: "Start" and "Exit"
 	# and bind them with "on_start" and "on_exit"
 	# methods of "self" (this) object respectfully
 	main_menu.add_button("Start", self, "on_start")
+	main_menu.add_spacer(2)
 	main_menu.add_button("Exit", self, "on_exit")
 	# add to the current scene as a child
 	add_child(main_menu)
